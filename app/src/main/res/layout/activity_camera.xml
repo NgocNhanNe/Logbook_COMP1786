@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Take A Photo"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_weight="30"
+        android:layout_below="@id/title"/>
+
+    <Button
+        android:id="@+id/capture_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/previewView"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Capture" />
+
+    <ImageView
+        android:id="@+id/imageCamera"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@id/itemLabel"
+        android:src="@color/black"/>
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/imageCamera"
+        android:textColor="@color/black"
+        android:drawableLeft="@drawable/ic_baseline_keyboard_arrow_left_24"
+        android:backgroundTint="@color/teal_200"
+        android:text="Previous" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/teal_200"
+        android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+        android:textColor="@color/black"
+        android:layout_below="@id/imageCamera"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/itemLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/capture_button"
+        android:layout_centerInParent="true"
+        android:text="Label!" />
+
+</RelativeLayout>

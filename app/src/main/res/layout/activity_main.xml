@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:id="@+id/titleFrame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Store image from URL to File"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:layout_below="@id/titleFrame">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1000dp">
+
+            <ImageView
+                android:id="@+id/img_import"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp" />
+
+            <EditText
+                android:id="@+id/url_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_below="@id/img_import"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:hint="Enter URL of the image" />
+
+            <Button
+                android:id="@+id/resset_button"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/url_edit"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#C53E3E"
+                android:text="Clear Data" />
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="220dp"
+                android:backgroundTint="@color/teal_700"
+                android:layout_below="@id/url_edit"
+                android:text="Fetch Data" />
+
+            <Button
+                android:id="@+id/gotoLoadActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_below="@id/add_button"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+                android:text="Go to Load Image from File"/>
+
+            <Button
+                android:id="@+id/gotoCameraActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/gotoLoadActivity"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+                android:text="Take a picture"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
