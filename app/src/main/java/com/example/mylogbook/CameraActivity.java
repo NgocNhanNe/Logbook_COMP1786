@@ -79,16 +79,16 @@ public class CameraActivity extends AppCompatActivity {
         buttonTakePhoto.setOnClickListener(v -> takePhoto());
 
         pre_btn.setOnClickListener(v -> {
+            currentIndex--;
             setAnimationLeftToRight();
             setImageFromStorage();
         });
 
         next_btn.setOnClickListener(v -> {
+            currentIndex++;
             setAnimationRightToLeft();
             setImageFromStorage();
         });
-
-
 
     }
 
@@ -159,7 +159,7 @@ public class CameraActivity extends AppCompatActivity {
 
                         List<String> imageAbsolutePaths = getImageAbsolutePaths();
                         // display recent captured photo
-                        Glide.with(CameraActivity.this).load(imageAbsolutePaths.get(0))
+                        Glide.with(CameraActivity.this).load(imageAbsolutePaths.get(imageAbsolutePaths.size()-1))
                                 .centerCrop()
                                 .into(imageCamera);
                         itemLabel.setText(outputFileResults.getSavedUri().getPath());
@@ -179,7 +179,7 @@ public class CameraActivity extends AppCompatActivity {
         final Uri uri = android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String[] projection = { MediaStore.MediaColumns.DATA,
                 MediaStore.Images.Media.BUCKET_DISPLAY_NAME };
-        final String orderBy = MediaStore.Images.Media.DATE_TAKEN + " DESC";
+        final String orderBy = MediaStore.Images.Media.DATE_TAKEN ;
         final Cursor cursor = this.getContentResolver().query(uri, projection, null,
                 null, orderBy);
 
@@ -199,9 +199,10 @@ public class CameraActivity extends AppCompatActivity {
             Toast.makeText(CameraActivity.this, "No photo found", Toast.LENGTH_SHORT).show();
         }
         else {
-            currentIndex++;
-            if (currentIndex == count) {
+            if ( currentIndex >= count) {
                 currentIndex = 0;
+            } else if(currentIndex<0){
+                currentIndex = count -1;
             }
             final String imagePath = imageAbsolutePaths.get(currentIndex);
             itemLabel.setText(imagePath);
